@@ -12,13 +12,13 @@ const Header = () => {
     //Navlink
     const links = <>
         <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/">Membership</NavLink></li>
+        <li><NavLink to="/membership">Membership</NavLink></li>
         <li><NavLink to="/"><IoMdNotifications className="text-green-600"/></NavLink></li>
         <li><NavLink to="/register">Join Us</NavLink></li>
     </>
     const linksPrivate = <>
         <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/">Membership</NavLink></li>
+        <li><NavLink to="/membership">Membership</NavLink></li>
         <li><NavLink to="/"><IoMdNotifications className="text-green-600"/></NavLink></li>
     </>
 
@@ -43,6 +43,7 @@ const Header = () => {
                                         </label>
                                         <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded">
                                             <li className="whitespace-nowrap">{user.displayName}</li>
+                                            <li><Link to={'/dashboard'} className="navbtn rounded-lg">Dashboard</Link></li>
                                             <li><Link onClick={handleSignout} className="navbtn rounded-lg">Signout</Link></li>
                                         </ul>
                                     </div>
