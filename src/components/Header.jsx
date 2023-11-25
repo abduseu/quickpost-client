@@ -1,12 +1,19 @@
 import { Link, NavLink } from "react-router-dom";
 import { IoMdNotifications } from "react-icons/io";
 import { IoChatbubblesOutline } from "react-icons/io5";
+import useAuth from "../hooks/useAuth";
 
 const Header = () => {
-    const user = false
+    const { user, logOut } = useAuth()
 
     const handleSignout = () => {
-        console.log('logout')
+        logOut()
+            .then(() => {
+                console.log('Signout Successful!')
+            })
+            .catch((error) => {
+                console.log(error.message)
+            });
     }
 
     //Navlink
