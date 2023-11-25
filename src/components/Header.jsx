@@ -14,7 +14,7 @@ const Header = () => {
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/membership">Membership</NavLink></li>
         <li><NavLink to="/"><IoMdNotifications className="text-green-600"/></NavLink></li>
-        <li><NavLink to="/register">Join Us</NavLink></li>
+        <li><NavLink to="/login">Join Us</NavLink></li>
     </>
     const linksPrivate = <>
         <li><NavLink to="/">Home</NavLink></li>
