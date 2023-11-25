@@ -3,7 +3,7 @@ import { IoMdNotifications } from "react-icons/io";
 import { IoChatbubblesOutline } from "react-icons/io5";
 
 const Header = () => {
-    const user = true
+    const user = false
 
     const handleSignout = () => {
         console.log('logout')
@@ -13,13 +13,13 @@ const Header = () => {
     const links = <>
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/">Membership</NavLink></li>
-        <li><NavLink to="/"><IoMdNotifications/></NavLink></li>
+        <li><NavLink to="/"><IoMdNotifications className="text-green-600"/></NavLink></li>
         <li><NavLink to="/register">Join Us</NavLink></li>
     </>
     const linksPrivate = <>
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/">Membership</NavLink></li>
-        <li><NavLink to="/"><IoMdNotifications/></NavLink></li>
+        <li><NavLink to="/"><IoMdNotifications className="text-green-600"/></NavLink></li>
     </>
 
     return (
@@ -27,7 +27,7 @@ const Header = () => {
             {/* Logo & Button */}
             <div className="flex flex-col md:flex-row md:gap-10 items-center justify-between mb-2">
                 <div>
-                    <Link to="/" className="text-3xl font-semibold flex items-center gap-2"><IoChatbubblesOutline/>QUICKPOST</Link>
+                    <Link to="/" className="text-3xl font-semibold flex items-center gap-2"><IoChatbubblesOutline className="text-green-600"/>QUICKPOST</Link>
                 </div>
                 <div className="mt-6 md:mt-0">
                     <div>
