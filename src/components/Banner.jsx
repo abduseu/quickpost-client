@@ -4,9 +4,9 @@ const Banner = () => {
     return (
         <div className="bg-cover bg-center">
             <div className="bg-gray rounded-lg flex justify-center items-center">
-                <div className="text-center p-6 md:p-32">
+                <div className="text-center p-6 md:p-20">
                     {/* Search Box */}
-                    <h3 className="text-5xl font-bold mb-10">Search Posts</h3>
+                    <h3 className="text-3xl font-semibold mb-10 uppercase">Search Posts</h3>
                     <label>
                         <div className="bg-white border border-search max-w-md mx-auto flex justify-between rounded-lg">
                             <input className="focus:outline-none m-4" type="text" name="search" placeholder="Search here...." />
