@@ -11,6 +11,7 @@ body{
 span{
     color: #16A34A;
 }
+
 .active{
     color: #16A34A;
 }
@@ -22,4 +23,12 @@ span{
 }
 .green{
     color: #16A34A;
+}
+
+.tags li{
+    background-color: aliceblue;
+    padding: 4px;
+}
+.tags li::before {
+    content: "#";
 }
