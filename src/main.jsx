@@ -11,6 +11,7 @@ import ErrorPage from "./pages/ErrorPage";
 import AuthProvider from "./providers/AuthProvider";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import HomePage from "./pages/HomePage";
 
 
 
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <h1>Home Page</h1>,
+        element: <HomePage></HomePage>,
       },
       {
         path: '/login',

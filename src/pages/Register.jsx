@@ -92,7 +92,7 @@ const Register = () => {
                                 <Link to="/login">Already have an account?</Link>
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn navy rounded">Sign up</button>
+                                <button className="btn rounded">Sign up</button>
                             </div>
                             <p className="py-4 text-red-600 font-semibold">
                                 {validationError}

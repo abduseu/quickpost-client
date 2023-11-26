@@ -14,8 +14,12 @@ span{
 .active{
     color: #16A34A;
 }
-.navbtn{
-    background-color: black;
-    color: white;
-    padding: 15px 22px;
+.bg-gray{
+    background-color: #f2f2f7;
+}
+.bg-green{
+    background-color: #16A34A;
+}
+.green{
+    color: #16A34A;
 }
