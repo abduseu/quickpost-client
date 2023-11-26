@@ -12,6 +12,8 @@ import AuthProvider from "./providers/AuthProvider";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import HomePage from "./pages/HomePage";
+import Membership from "./pages/Membership";
+import Notification from "./pages/Notification";
 
 
 
@@ -24,6 +26,14 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <HomePage></HomePage>,
+      },
+      {
+        path: '/membership',
+        element: <Membership></Membership>,
+      },
+      {
+        path: '/notification',
+        element: <Notification></Notification>,
       },
       {
         path: '/login',
