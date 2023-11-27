@@ -3,7 +3,7 @@ const Tag = () => {
         <div className="bg-gray my-6 rounded-lg text-center font-semibold">
             <div className="p-5">
                 <h3 className="text-xl font-semibold mb-2 uppercase">Tags</h3>
-                <ul className="tags gap-5 flex flex-wrap justify-center max-w-2xl mx-auto">
+                <ul className="tags gap-5 flex flex-wrap justify-center max-w-5xl mx-auto">
                     <li>list1</li>
                     <li>list2</li>
                     <li>list3</li>

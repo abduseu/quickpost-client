@@ -8,7 +8,7 @@ const Banner = () => {
                     {/* Search Box */}
                     <h3 className="text-3xl font-semibold mb-6 uppercase">Search Posts</h3>
                     <label>
-                        <div className="bg-white border border-search max-w-2xl mx-auto flex justify-between rounded-lg">
+                        <div className="bg-white border border-search max-w-5xl mx-auto flex justify-between rounded-lg">
                             <input className="focus:outline-none m-4" type="text" name="search" placeholder="Search here...." />
                             <Link to="/err"><button className="bg-green text-white py-4 px-7 rounded-r-lg">Search</button></Link>
                         </div>
