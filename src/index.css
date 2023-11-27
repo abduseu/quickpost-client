@@ -26,8 +26,9 @@ span{
 }
 
 .tags li{
-    background-color: aliceblue;
-    padding: 4px;
+    background-color: #EAEAEA;
+    padding: 2px 8px;
+    border-radius: 4px;
 }
 .tags li::before {
     content: "#";
