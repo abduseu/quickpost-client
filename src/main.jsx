@@ -14,6 +14,9 @@ import Register from "./pages/Register";
 import HomePage from "./pages/HomePage";
 import Membership from "./pages/Membership";
 import Notification from "./pages/Notification";
+import MyProfile from "./pages/UserDashboard/MyProfile";
+import AddPost from "./pages/UserDashboard/AddPost";
+import MyPosts from "./pages/UserDashboard/MyPosts";
 
 
 
@@ -43,8 +46,24 @@ const router = createBrowserRouter([
         path: '/register',
         element: <Register></Register>,
       },
+      {
+        path: '/user',
+        element: <MyProfile></MyProfile>,
+      },
+      {
+        path: '/profile',
+        element: <MyProfile></MyProfile>,
+      },
+      {
+        path: '/add',
+        element: <AddPost></AddPost>,
+      },
+      {
+        path: '/posts',
+        element: <MyPosts></MyPosts>,
+      },
     ]
-  }
+  },
 ])
 
 
