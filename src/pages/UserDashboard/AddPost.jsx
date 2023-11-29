@@ -1,4 +1,6 @@
+import { axiosBase } from "../../hooks/useAxios";
 import UserDrawer from "./UserDrawer";
+import Swal from 'sweetalert2'
 
 const handleAddPost = (e) => {
     e.preventDefault();
@@ -11,11 +13,19 @@ const handleAddPost = (e) => {
     const tag = form.tag.value;
     const upvote = 0
     const downvote = 0
-    const addPost = {authorImg, name, email, title, postDescription, tag, upvote, downvote}
+    const addPost = { authorImg, name, email, title, postDescription, tag, upvote, downvote }
 
-
-
-    console.log('clicked', addPost)
+    axiosBase.post('/posts', addPost)
+        .then(res => {
+            console.log(res.data)
+            if(res.data.insertedId){
+                Swal.fire({
+                    title: "Successful!",
+                    text: "Post Added!",
+                    icon: "success"
+                });
+            }
+        })
 }
 
 const AddPost = () => {
@@ -23,7 +33,7 @@ const AddPost = () => {
         <div>
             <div className="md:flex">
                 <UserDrawer></UserDrawer>
-                <div className="bg-gray w-full">
+                <div className="w-full">
                     <div className="text-center font-semibold text-2xl md:text-3xl p-6 md:p-10 uppercase">
                         <h2>Add Post</h2>
                     </div>
