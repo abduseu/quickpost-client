@@ -2,33 +2,35 @@ import { axiosBase } from "../../hooks/useAxios";
 import UserDrawer from "./UserDrawer";
 import Swal from 'sweetalert2'
 
-const handleAddPost = (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const authorImg = form.authorImg.value;
-    const name = form.name.value;
-    const email = form.email.value;
-    const title = form.title.value;
-    const postDescription = form.postDescription.value;
-    const tag = form.tag.value;
-    const upvote = 0
-    const downvote = 0
-    const addPost = { authorImg, name, email, title, postDescription, tag, upvote, downvote }
-
-    axiosBase.post('/posts', addPost)
-        .then(res => {
-            console.log(res.data)
-            if(res.data.insertedId){
-                Swal.fire({
-                    title: "Successful!",
-                    text: "Post Added!",
-                    icon: "success"
-                });
-            }
-        })
-}
-
 const AddPost = () => {
+    const handleAddPost = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const authorImg = form.authorImg.value;
+        const name = form.name.value;
+        const email = form.email.value;
+        const title = form.title.value;
+        const postDescription = form.postDescription.value;
+        const tag = form.tag.value;
+        const upvote = 0
+        const downvote = 0
+        const timestamp = new Date().toISOString();
+    
+        const addPost = { authorImg, name, email, title, postDescription, tag, upvote, downvote, timestamp }
+    
+        axiosBase.post('/posts', addPost)
+            .then(res => {
+                console.log(res.data)
+                if(res.data.insertedId){
+                    Swal.fire({
+                        title: "Successful!",
+                        text: "Post Added!",
+                        icon: "success"
+                    });
+                }
+            })
+    }
+
     return (
         <div>
             <div className="md:flex">
@@ -50,7 +52,7 @@ const AddPost = () => {
                                 </div>
                                 <div>
                                     <h3>Author Email:</h3>
-                                    <input type="email" name="email" placeholder="Author Name" className="input input-bordered w-full" required />
+                                    <input type="email" name="email" placeholder="Email" className="input input-bordered w-full" required />
                                 </div>
                                 <div>
                                     <h3>Post Title:</h3>

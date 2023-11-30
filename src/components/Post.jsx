@@ -1,35 +1,50 @@
 import { BiCommentDetail, BiDislike, BiLike } from "react-icons/bi";
 
-const Post = () => {
+const Post = ({ obj }) => {
+    const posts = obj;
+
+    const formatTime = (timestamp) => {
+        const postTime = new Date(timestamp);
+        const currentTime = new Date();
+        const timeDiff = Math.floor((currentTime - postTime) / 1000);
+
+        if (timeDiff < 60) return 'just now';
+        if (timeDiff < 3600) return `${Math.floor(timeDiff / 60)} minutes ago`;
+        if (timeDiff < 86400) return `${Math.floor(timeDiff / 3600)} hours ago`;
+
+        return postTime.toLocaleString(); // Fallback to default date format
+    };
+
     return (
         <div className="bg-white p-4 rounded">
             <div className="flex my-4">
                 <img
-                    src="https://assets.website-files.com/6357722e2a5f19121d37f84d/6358cb614a296368b383467c_Ellipse%205-3.png"
+                    src={posts.authorImg}
                     alt=""
-                    className="mr-4 h-10 w-10"
+                    className="mr-4 h-10 w-10 rounded-full"
                 />
                 <div className="flex flex-col">
-                    <h6 className="font-semibold">Laila Bahar</h6>
-                    <p className="text-sm text-[#636262]">5 mins ago</p>
+                    <h6 className="font-semibold">{posts.name}</h6>
+                    <p className="text-sm text-[#636262]">{formatTime(posts.timestamp)}</p>
                 </div>
             </div>
             <div>
-                <h2 className="font-bold">How to patch KDE on FreeBSD?</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consequat aliquet maecenas ut sit nulla</p>
+                <h2 className="font-bold">{posts.title}</h2>
+                <p>{posts.postDescription}</p>
             </div>
             <div className="border my-2"></div>
             <div className="flex justify-between text-sm">
                 <div className="flex tags gap-2">
-                    <li>tag1</li>
-                    <li>tag2</li>
+                    <ul>
+                        <li>{posts.tag}</li>
+                    </ul>
                 </div>
                 <div className="flex gap-2 text-base">
                     <div className="flex items-center gap-2">
-                        <BiLike/>
-                        <BiDislike/>
+                        <BiLike />
+                        <BiDislike />
                     </div>
-                    <div className="flex items-center"><BiCommentDetail/></div>
+                    <div className="flex items-center"><BiCommentDetail /></div>
                 </div>
             </div>
         </div>
