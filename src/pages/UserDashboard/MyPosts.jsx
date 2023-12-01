@@ -1,13 +1,26 @@
-import useAxios from "../../hooks/useAxios";
+import Swal from "sweetalert2";
+import useAxios, { axiosBase } from "../../hooks/useAxios";
 import UserDrawer from "./UserDrawer";
+import useAuth from "../../hooks/useAuth";
 
 const MyPosts = () => {
-    const posts = useAxios('/posts')
+    const {user} = useAuth()
+    const posts = useAxios(`/myposts/${user.email}`)
 
-    const handleDelete = (e) =>{
-        e.preventDefault()
-        
-        console.log('clicked')
+    const handleDelete = (id) => {
+        axiosBase.delete(`/posts/${id}`, {
+            method: 'DELETE'
+        })
+            .then(res => {
+                console.log(res.data)
+                if (res.data.deletedCount > 0) {
+                    Swal.fire(
+                        'Deleted!',
+                        'Your Post has been deleted.',
+                        'success'
+                    )
+                }
+            })
     }
 
     return (

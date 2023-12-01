@@ -1,8 +1,11 @@
+import useAuth from "../../hooks/useAuth";
 import { axiosBase } from "../../hooks/useAxios";
 import UserDrawer from "./UserDrawer";
 import Swal from 'sweetalert2'
 
 const AddPost = () => {
+    const {user} = useAuth()
+
     const handleAddPost = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -48,11 +51,11 @@ const AddPost = () => {
                                 </div>
                                 <div>
                                     <h3>Author Name:</h3>
-                                    <input type="text" name="name" placeholder="Name" className="input input-bordered w-full" required />
+                                    <input type="text" name="name" placeholder="Name" defaultValue={user.displayName} className="input input-bordered w-full" required />
                                 </div>
                                 <div>
                                     <h3>Author Email:</h3>
-                                    <input type="email" name="email" placeholder="Email" className="input input-bordered w-full" required />
+                                    <input type="email" name="email" placeholder="Email" defaultValue={user.email} className="input input-bordered w-full" required />
                                 </div>
                                 <div>
                                     <h3>Post Title:</h3>

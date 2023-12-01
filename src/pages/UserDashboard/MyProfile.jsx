@@ -6,7 +6,7 @@ import { SlBadge } from "react-icons/sl";
 
 const MyProfile = () => {
     const { user } = useAuth()
-    const posts = useAxios('/posts')
+    const posts = useAxios(`/myposts/${user.email}`)
 
 
     return (

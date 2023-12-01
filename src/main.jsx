@@ -17,6 +17,7 @@ import Notification from "./pages/Notification";
 import MyProfile from "./pages/UserDashboard/MyProfile";
 import AddPost from "./pages/UserDashboard/AddPost";
 import MyPosts from "./pages/UserDashboard/MyPosts";
+import Private from "./components/Private";
 
 
 
@@ -48,19 +49,19 @@ const router = createBrowserRouter([
       },
       {
         path: '/user',
-        element: <MyProfile></MyProfile>,
+        element: <Private><MyProfile></MyProfile></Private>,
       },
       {
         path: '/profile',
-        element: <MyProfile></MyProfile>,
+        element: <Private><MyProfile></MyProfile></Private>,
       },
       {
         path: '/add',
-        element: <AddPost></AddPost>,
+        element: <Private><AddPost></AddPost></Private>,
       },
       {
         path: '/posts',
-        element: <MyPosts></MyPosts>,
+        element: <Private><MyPosts></MyPosts></Private>,
       },
     ]
   },
