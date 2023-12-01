@@ -26,7 +26,7 @@ const MyProfile = () => {
                                 Badge: <SlBadge className=" text-amber-600" />
                             </h3>
                         </div>
-                        <div className="border">
+                        <div>
                             {
                                 posts.slice(-3).map(x=> <Post key={x._id} obj={x}></Post>)
                             }
