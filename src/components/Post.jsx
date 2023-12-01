@@ -16,7 +16,7 @@ const Post = ({ obj }) => {
     };
 
     return (
-        <div className="bg-white p-4 my-2 border rounded">
+        <div className="bg-white text-left p-4 my-2 border rounded">
             <div className="flex my-4">
                 <img
                     src={posts.authorImg}
