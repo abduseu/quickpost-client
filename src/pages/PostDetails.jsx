@@ -6,8 +6,10 @@ import { FacebookShareButton, FacebookIcon } from 'react-share';
 const PostDetails = () => {
     const { id } = useParams();
     const post = useAxios(`/posts/${id}`)
-
     const shareUrl = `${clientBase}/posts/${id}`;
+
+    const formatedTime = new Date(post.timestamp)
+  .toLocaleString('en-US', { month: 'numeric', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true });
 
     return (
         <div className="md:px-10">
@@ -19,7 +21,7 @@ const PostDetails = () => {
                 />
                 <div className="flex flex-col">
                     <h6 className="font-semibold">{post.name}</h6>
-                    <p className="text-sm text-[#636262]">{post.timestamp}</p>
+                    <p className="text-sm text-[#636262]">{formatedTime}</p>
                 </div>
             </div>
             <div>
