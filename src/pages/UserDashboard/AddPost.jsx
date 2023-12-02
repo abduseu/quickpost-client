@@ -47,7 +47,7 @@ const AddPost = () => {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                                 <div>
                                     <h3>Author Image:</h3>
-                                    <input type="url" name="authorImg" placeholder="Paste image url here" className="input input-bordered w-full" required />
+                                    <input type="url" name="authorImg" placeholder="Paste image url here" defaultValue={user.photoURL} className="input input-bordered w-full" required />
                                 </div>
                                 <div>
                                     <h3>Author Name:</h3>
