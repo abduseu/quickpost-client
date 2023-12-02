@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 export const clientBase = 'https://quickpost-58cb7.web.app'
 
 export const axiosBase = axios.create({
-    baseURL: 'http://localhost:5000'
+    baseURL: 'http://localhost:5000',
+    //baseURL: 'https://quickpost-server.vercel.app',
 })
 
 const useAxios = (url) => {
