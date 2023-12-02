@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import useAxios from "../hooks/useAxios";
+import useAxios, { clientBase } from "../hooks/useAxios";
 import { BiCommentDetail, BiDislike, BiLike } from "react-icons/bi";
 import { FacebookShareButton, FacebookIcon } from 'react-share';
 
@@ -7,7 +7,7 @@ const PostDetails = () => {
     const { id } = useParams();
     const post = useAxios(`/posts/${id}`)
 
-    const shareUrl = `http://example.com/posts/${id}`;
+    const shareUrl = `${clientBase}/posts/${id}`;
 
     return (
         <div className="md:px-10">
