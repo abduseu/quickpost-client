@@ -18,6 +18,7 @@ import MyProfile from "./pages/UserDashboard/MyProfile";
 import AddPost from "./pages/UserDashboard/AddPost";
 import MyPosts from "./pages/UserDashboard/MyPosts";
 import Private from "./components/Private";
+import PostDetails from "./pages/PostDetails";
 
 
 
@@ -62,6 +63,10 @@ const router = createBrowserRouter([
       {
         path: '/posts',
         element: <Private><MyPosts></MyPosts></Private>,
+      },
+      {
+        path: '/posts/:id',
+        element: <PostDetails></PostDetails>,
       },
     ]
   },

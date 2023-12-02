@@ -1,4 +1,5 @@
 import { BiCommentDetail, BiDislike, BiLike } from "react-icons/bi";
+import { Link } from "react-router-dom";
 
 const Post = ({ obj }) => {
     const posts = obj;
@@ -29,7 +30,7 @@ const Post = ({ obj }) => {
                 </div>
             </div>
             <div>
-                <h2 className="font-bold">{posts.title}</h2>
+                <Link to={`/posts/${posts._id}`}><h2 className="font-bold">{posts.title}</h2></Link>
                 <p>{posts.postDescription}</p>
             </div>
             <div className="border my-2"></div>
