@@ -14,6 +14,30 @@ const HomePage = () => {
             })
     }, [])
 
+    const handleSearch = (e) => {
+        e.preventDefault();
+        const search = e.target.search.value
+
+        if (search !== "") {
+            axiosBase.get(`/posts?search=${search}`)
+                .then(res => {
+                    setPosts(res.data)
+                })
+        } else {
+            axiosBase.get('/posts')
+                .then(res => {
+                    setPosts(res.data)
+                })
+        }
+    }
+
+    const handleTag = (tag) => {
+        axiosBase.get(`/posts?search=${tag}`)
+            .then(res => {
+                setPosts(res.data)
+            })
+    }
+
     return (
         <div>
             {/* Banner */}
@@ -23,10 +47,10 @@ const HomePage = () => {
                         {/* Search Box */}
                         <h3 className="text-3xl font-semibold mb-6 uppercase">Search Posts</h3>
                         <label>
-                            <div className="bg-white border border-search max-w-5xl mx-auto flex justify-between rounded-lg">
+                            <form onSubmit={handleSearch} className="bg-white border border-search max-w-5xl mx-auto flex justify-between rounded-lg">
                                 <input className="focus:outline-none m-4" type="text" name="search" placeholder="Search here...." />
-                                <Link to="/err"><button className="bg-green text-white py-4 px-7 rounded-r-lg">Search</button></Link>
-                            </div>
+                                <button className="bg-green text-white py-4 px-7 rounded-r-lg">Search</button>
+                            </form>
                         </label>
                     </div>
                 </div>
@@ -37,9 +61,12 @@ const HomePage = () => {
                 <div className="p-5">
                     <h3 className="text-xl font-semibold mb-2 uppercase">Tags</h3>
                     <ul className="tags gap-5 flex flex-wrap justify-center max-w-5xl mx-auto">
-                        <Link to={'/tags/help'}><li>help</li></Link>
+                        {/* <Link to={'/tags/help'}><li>help</li></Link>
                         <Link to={'/tags/suggestion'}><li>suggestion</li></Link>
-                        <Link to={'/tags/feedback'}><li>feedback</li></Link>
+                        <Link to={'/tags/feedback'}><li>feedback</li></Link> */}
+                        <Link onClick={()=>handleTag('help')}><li>help</li></Link>
+                        <Link onClick={()=>handleTag('suggestion')}><li>suggestion</li></Link>
+                        <Link onClick={()=>handleTag('feedback')}><li>feedback</li></Link>
                     </ul>
                 </div>
             </div>
