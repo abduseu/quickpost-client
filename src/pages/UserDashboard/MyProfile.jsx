@@ -2,12 +2,12 @@ import Post from "../../components/Post";
 import useAuth from "../../hooks/useAuth";
 import useAxios from "../../hooks/useAxios";
 import UserDrawer from "./UserDrawer";
-import { SlBadge } from "react-icons/sl";
+import { LuBadgeCheck, LuBadgeDollarSign} from "react-icons/lu";
 
 const MyProfile = () => {
     const { user } = useAuth()
     const posts = useAxios(`/myposts/${user.email}`)
-
+    const usersTable = useAxios(`/users/${user.email}`)
 
     return (
         <div className="md:flex">
@@ -22,8 +22,10 @@ const MyProfile = () => {
                             </div>
                             <h3>Name: <span>{user.displayName}</span> </h3>
                             <h3>Email: <span>{user.email}</span> </h3>
-                            <h3 className="flex justify-center items-center gap-4">
-                                Badge: <SlBadge className=" text-amber-600" />
+                            <h3 className="flex justify-center items-center">
+                                Badge: 
+                                {usersTable.badge && <>[<LuBadgeCheck className="text-amber-600" /> {usersTable.badge}]</>}
+                                {usersTable.badge2 && <>[<LuBadgeDollarSign className="text-amber-600" /> {usersTable.badge2}]</>}
                             </h3>
                         </div>
                         <div>
