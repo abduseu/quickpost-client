@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
+import { axiosBase } from "../hooks/useAxios";
 
 const Login = () => {
     const { signinGoogle, signInUser } = useContext(AuthContext)
@@ -39,7 +40,17 @@ const Login = () => {
         signinGoogle()
             .then(result => {
                 console.log('Google login succesful', result.user)
-                navigate('/')
+                const userInfo = {
+                    email: result.user?.email,
+                    name: result.user?.displayName,
+                    badge: 'bronze',
+                    role: 'user'
+                }
+                axiosBase.post('/users', userInfo)
+                .then(res =>{
+                    console.log(res.data);
+                    navigate('/');
+                })
             })
             .catch(error => {
                 setValidationError(error.message)

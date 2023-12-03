@@ -34,7 +34,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/membership',
-        element: <Membership></Membership>,
+        element: <Private><Membership></Membership></Private>,
       },
       {
         path: '/notification',

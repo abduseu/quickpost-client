@@ -1,9 +1,13 @@
 const Membership = () => {
     return (
-        <div>
-            <h1 className="font-bold">7. Membership Page (Private Route) :</h1>
-            This will be the Payment page where the user has to pay N taka/dollar to
-            become a member of this site.
+        <div className="text-center space-y-4">
+            <div className="font-semibold text-2xl md:text-3xl p-6 md:p-10 uppercase">
+                <h2>Become a Gold Member:</h2>
+            </div>
+            <p><span>Gold badge member can do more than 5 posts</span></p>
+
+            <h1 className="font-bold text-2xl">Total: $50</h1>
+            <button className="btn btn-success text-white">Make Payment</button>
         </div>
     );
 };

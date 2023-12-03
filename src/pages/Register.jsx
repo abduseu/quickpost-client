@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import { updateProfile } from "firebase/auth";
+import { axiosBase } from "../hooks/useAxios";
 
 const Register = () => {
     const { createUser } = useContext(AuthContext)
@@ -41,13 +42,22 @@ const Register = () => {
                     photoURL: photo,
                 })
                     .then(() => {
+                        const userInfo = {
+                            email: result.user?.email,
+                            name: result.user?.displayName,
+                            badge: 'bronze',
+                            role: 'user'
+                        }
+                        axiosBase.post('/users', userInfo)
+                            .then(res => {
+                                console.log(res.data);
+                                navigate('/');
+                            })
                         console.log('Profile Updated')
                     })
                     .catch(error => {
                         console.log('Profile update failed', error.message)
                     })
-
-                navigate('/')
             })
             .catch((error) => {
                 const errorCode = error.code;
