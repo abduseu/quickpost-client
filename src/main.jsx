@@ -19,6 +19,7 @@ import AddPost from "./pages/UserDashboard/AddPost";
 import MyPosts from "./pages/UserDashboard/MyPosts";
 import Private from "./components/Private";
 import PostDetails from "./pages/PostDetails";
+import AdminProfile from "./pages/AdminDashboard/AdminProfile";
 
 
 
@@ -48,6 +49,7 @@ const router = createBrowserRouter([
         path: '/register',
         element: <Register></Register>,
       },
+      /////////User/////////
       {
         path: '/user',
         element: <Private><MyProfile></MyProfile></Private>,
@@ -67,6 +69,11 @@ const router = createBrowserRouter([
       {
         path: '/posts/:id',
         element: <PostDetails></PostDetails>,
+      },
+      /////////Admin/////////
+      {
+        path: '/admin',
+        element: <Private><AdminProfile></AdminProfile></Private>,
       },
     ]
   },
