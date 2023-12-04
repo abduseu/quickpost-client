@@ -7,6 +7,7 @@ import useAxios from "../hooks/useAxios";
 const Header = () => {
     const { user, logOut } = useAuth()
     const {role} = useAxios(`/users/${user?.email}`)
+    const announcementCount = useAxios('/announcements').length
 
     const handleSignout = () => {
         logOut()
@@ -28,7 +29,7 @@ const Header = () => {
     const linksPrivate = <>
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/membership">Membership</NavLink></li>
-        <li><NavLink to="/notification"><IoMdNotifications/></NavLink></li>
+        <li><NavLink to="/notification" className="flex"><IoMdNotifications/><sup className="text-xs text-red-600">{announcementCount}</sup></NavLink></li>
     </>
 
     return (
