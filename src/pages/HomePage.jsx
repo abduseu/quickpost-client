@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import Announcement from "../components/Announcement";
-import { axiosBase } from "../hooks/useAxios";
+import useAxios, { axiosBase } from "../hooks/useAxios";
 import Post from "../components/Post";
 import { Link } from "react-router-dom";
 
 const HomePage = () => {
     const [posts, setPosts] = useState([])
+    const announcements = useAxios('/announcements')
 
     useEffect(() => {
         axiosBase.get('/posts')
@@ -72,7 +73,7 @@ const HomePage = () => {
             </div>
 
             {/* Announcement */}
-            <Announcement></Announcement>
+            {announcements.length > 0 && <Announcement obj={announcements}></Announcement>}
 
             {/* Feed */}
             <div className="bg-gray my-6 rounded-lg">
