@@ -1,11 +1,25 @@
-import useAxios from "../../hooks/useAxios";
+import Swal from "sweetalert2";
+import useAxios, { axiosBase } from "../../hooks/useAxios";
 import AdminDrawer from "./AdminDrawer";
 
 const ManageUsers = () => {
     const usersTable = useAxios('/users')
 
-    const handleManageUser = (id) => {
-        console.log('clicked', id)
+    const handleChangeRole = (id) => {
+
+        const changeRole = {role: 'admin'}
+
+        axiosBase.put(`/manageUsers/${id}`, changeRole)
+            .then(res => {
+                console.log(res.data)
+                if (res.data.modifiedCount > 0) {
+                    Swal.fire(
+                        'Role Changed!',
+                        'User role has been changed.',
+                        'success'
+                    )
+                }
+            })
     }
 
     return (
@@ -40,7 +54,7 @@ const ManageUsers = () => {
                                                         <td>{x.role}</td>
                                                         <td>{x.badge2 ? 'Paid' : 'Unpaid'}</td>
                                                         <td>
-                                                            <button onClick={() => handleManageUser(x._id)} className="btn btn-xs">Make Admin</button>
+                                                            <button onClick={() => handleChangeRole(x._id)} className="btn btn-xs">Make Admin</button>
                                                         </td>
                                                     </tr>)
                                             }

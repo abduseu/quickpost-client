@@ -19,13 +19,13 @@ const AdminProfile = () => {
                             <h3>Name: <span>{user.displayName}</span> </h3>
                             <h3>Email: <span>{user.email}</span> </h3>
                             <ul>
-                                <li>Total Posts:</li>
+                                {/* <li>Total Posts:</li>
                                 <li>Total Comments:</li>
-                                <li>Total Users:</li>
+                                <li>Total Users:</li> */}
                             </ul>
                         </div>
                         <div>
-                            Tags
+                            {/* Tags */}
                         </div>
                     </div>
                 </div>
