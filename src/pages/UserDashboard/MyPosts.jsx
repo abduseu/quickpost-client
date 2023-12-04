@@ -50,8 +50,8 @@ const MyPosts = () => {
                                                     <tr key={x._id}>
                                                         {/* <th>{x._id}</th> */}
                                                         <td>{x.title}</td>
-                                                        <td>{'totaalVotes'}</td>
-                                                        <td>{'Comments'}</td>
+                                                        <td>{x.upvote}</td>
+                                                        <td>0</td>
                                                         <td>
                                                             <button onClick={() => handleDelete(x._id)} className="btn btn-xs">X</button>
                                                         </td>

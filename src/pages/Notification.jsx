@@ -11,9 +11,9 @@ const Notification = () => {
                     <ul className="list-decimal list-inside">
                         {
                             announcements.map(x => <>
-                                <div key={x._id} className="border my-2 py-2">
+                                <div key={x._id} className="border my-2 p-2">
                                     <h2 className="text-base"><span>{x.title}</span></h2>
-                                    <p className=" font-normal">x.description</p>
+                                    <p className=" font-normal">{x.description}</p>
                                 </div>
                             </>)
                         }
