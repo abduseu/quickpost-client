@@ -1,8 +1,15 @@
-# React + Vite
+# QUICKPOST - Online Conversation Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+** Live link: ** 
+https://quickpost-58cb7.web.app
 
-Currently, two official plugins are available:
+ 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Project features and functionalities 
+
+** Project features:**
+1. Firebase authentication implemented. User can login with Email-Password or Google.
+2. Responsive Design used for different sizes Mobile, Tablet & Desktop
+3. Protected route is used for logged user.
+4. Single Page Application (SPA) with Dynaic route is used for better performance
+5. API features implemented for dynamic data load.
