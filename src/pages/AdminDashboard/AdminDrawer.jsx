@@ -18,7 +18,7 @@ const AdminDrawer = () => {
                         <li><Link to={'/admin'}>Admin Profile</Link></li>
                         <li><Link to={'/manage-user'}>Manage Users</Link></li>
                         <li><Link to={'/reported'}>Reported Comments/Activities</Link></li>
-                        <li><Link to={'/make-announcement'}>Make Announcement</Link></li>
+                        <li><Link to={'/announce'}>Make Announcement</Link></li>
                     </ul>
 
                 </div>

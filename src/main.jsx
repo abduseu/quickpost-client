@@ -20,6 +20,9 @@ import MyPosts from "./pages/UserDashboard/MyPosts";
 import Private from "./components/Private";
 import PostDetails from "./pages/PostDetails";
 import AdminProfile from "./pages/AdminDashboard/AdminProfile";
+import ManageUsers from "./pages/AdminDashboard/ManageUsers";
+import Reported from "./pages/AdminDashboard/Reported";
+import MakeAnnouncement from "./pages/AdminDashboard/MakeAnnouncement";
 
 
 
@@ -74,6 +77,18 @@ const router = createBrowserRouter([
       {
         path: '/admin',
         element: <Private><AdminProfile></AdminProfile></Private>,
+      },
+      {
+        path: '/manage-user',
+        element: <Private><ManageUsers></ManageUsers></Private>,
+      },
+      {
+        path: '/reported',
+        element: <Private><Reported></Reported></Private>,
+      },
+      {
+        path: '/announce',
+        element: <Private><MakeAnnouncement></MakeAnnouncement></Private>,
       },
     ]
   },
